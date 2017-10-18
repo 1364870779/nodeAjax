@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+	</body>
+	<script>
+		$.ajax({
+			url:"/add",
+			dataType:"json",
+			cache:"true",//
+			success(res){
+//				console.log(res)
+				if(!res.err){
+					$.each(res.data ,(i,v)=>{
+						$(`
+							<div>
+								<span>${i}</span>,
+								<span>${v.userlle}</span>,
+								<span>${v.name}</span>
+								<img src="${v.img}">
+							</div>
+							`).appendTo("body")
+						
+					});
+				}
+			}
+		})
+
+//$.ajax({
+//	url: '/add',
+//	dataType: 'json',
+//	cache: 'true',
+//	success(res) {
+//		console.log(res)
+//		if(!res.err) {
+//			$.each(res.data, (i, v) => {
+//				$(`
+//	                <div>
+//	                    <span>${i}</span>,
+//	                    <span>${v.userlle}</span>,
+//	                    <span>${v.name}</span>,
+//	                    
+//	                </div>
+//	                `).appendTo('body')
+//			})
+//		}
+//	}
+//})
+	</script>
+</html>
